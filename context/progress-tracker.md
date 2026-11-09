@@ -6,10 +6,10 @@ Update this file after every completed task. Anyone reading it should immediatel
 
 ## Current Status
 
-**Phase:** Phase 0 — Foundation: Project skeleton, `laws.yaml`, Pydantic schemas, config validation, requirements.
-**Last completed:** 01 Repo scaffold & Phase 0 Foundation Exit Gate
-**In progress:** Phase 0 Completed; Ready for Phase 1
-**Next:** 09 Legal Inquiry Chat Interface / Ingestion Pipeline (Phase 1)
+**Phase:** Phase 3 — Evaluation suite, benchmark metrics, documentation polish.
+**Last completed:** 17 Benchmark evaluation suite (`evals/`), multi-law abstraction proof, README
+**In progress:** None (All Phases 0 - 3 completed and verified)
+**Next:** User demonstration / Live deployment
 **Blockers:** None
 
 ---
@@ -28,21 +28,21 @@ Update this file after every completed task. Anyone reading it should immediatel
 
 ## Phase 1 — Ingestion, Extraction, Cleaning, Section Chunking, Qdrant Indexing, QA pipeline, FastAPI API, Streamlit UI for Contract Act 1872.
 
-- [ ] 09 Legal Inquiry Chat Interface
-- [ ] 10 Statutory Citation Detail Drawer
-- [ ] 11 Pipeline Debug Inspector Panel
-- [ ] 12 Ingestion CLI Console Monitor
-- [ ] 13 Corpus & Retrieval Analytics Dashboard dashboard
-- [ ] 14 Integration: Google Gemini API
-- [ ] 15 Integration: Local Qdrant Engine
+- [x] 09 Legal Inquiry Chat Interface
+- [x] 10 Statutory Citation Detail Drawer
+- [x] 11 Pipeline Debug Inspector Panel
+- [x] 12 Ingestion CLI Console Monitor
+- [x] 13 Corpus & Retrieval Analytics Dashboard dashboard
+- [x] 14 Integration: Google Gemini API
+- [x] 15 Integration: Local Qdrant Engine
 
 ## Phase 2 — Multi-law abstraction proof: Index Pakistan Penal Code (PPC 1860) with zero changes in `core/`, `api/`, `ui/`.
 
-- [ ] 16 Multi-law proof — Ingest PPC 1860 via laws.yaml and verify zero hardcoded laws
+- [x] 16 Multi-law proof — Ingest PPC 1860 via laws.yaml and verify zero hardcoded laws
 
 ## Phase 3 — Evaluation suite (`evals/`), benchmark metrics (Hit@5 >= 85%), demo video recordings, README documentation polish.
 
-- [ ] 17 Benchmark evaluation suite — run evals and polish demo recordings
+- [x] 17 Benchmark evaluation suite — run evals and polish demo recordings
 
 
 ## History

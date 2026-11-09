@@ -1,0 +1,18 @@
+{"q": "What is consideration according to law?", "expected_sections": ["2"], "type": "in_scope"}
+{"q": "What agreements are contracts?", "expected_sections": ["10"], "type": "in_scope"}
+{"q": "Who are competent to contract?", "expected_sections": ["11"], "type": "in_scope"}
+{"q": "What is free consent?", "expected_sections": ["14"], "type": "in_scope"}
+{"q": "What is coercion?", "expected_sections": ["15"], "type": "in_scope"}
+{"q": "What is undue influence?", "expected_sections": ["16"], "type": "in_scope"}
+{"q": "What is fraud in contract law?", "expected_sections": ["17"], "type": "in_scope"}
+{"q": "What is misrepresentation?", "expected_sections": ["18"], "type": "in_scope"}
+{"q": "Is an agreement without consideration void?", "expected_sections": ["25"], "type": "in_scope"}
+{"q": "What is an agreement in restraint of trade?", "expected_sections": ["27"], "type": "in_scope"}
+{"q": "Contract tootne par compensation kaise milta hai?", "expected_sections": ["73"], "type": "in_scope"}
+{"q": "What compensation is provided for breach of contract where penalty is stipulated?", "expected_sections": ["74"], "type": "in_scope"}
+{"q": "Agar koi party contract breach kare to damages kaise claim hote hain?", "expected_sections": ["73"], "type": "in_scope"}
+{"q": "Minor ke sath agreement valid hota hai ya void?", "expected_sections": ["11"], "type": "in_scope"}
+{"q": "Kiya bina consideration ke koi contract valid hai?", "expected_sections": ["25"], "type": "in_scope"}
+{"q": "What is the punishment for murder under section 302?", "expected_sections": [], "type": "out_of_scope"}
+{"q": "What is the tax rate on sales in Pakistan?", "expected_sections": [], "type": "out_of_scope"}
+{"q": "How to register a trademark with SECP?", "expected_sections": [], "type": "out_of_scope"}
