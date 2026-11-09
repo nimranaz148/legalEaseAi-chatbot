@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     EMBED_DIM: int = 768
     QDRANT_PATH: str = "qdrant_data"
     COLLECTION_NAME: str = "legal_docs"
-    API_URL: str = "http://127.0.0.1:8001"
+    API_URL: str = "http://127.0.0.1:8000"
     TOP_K: int = 5
     MIN_SCORE: float = 0.45
     OCR_PROVIDER: str = "gemini_vision"
