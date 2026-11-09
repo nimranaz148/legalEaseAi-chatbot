@@ -1,0 +1,42 @@
+contract_act:
+  name: "Contract Act"
+  full_name: "The Contract Act, 1872"
+  short: "Contract Act"
+  year: 1872
+  pdf: "data/raw/contract_act_1872.pdf"
+  language: "en"
+  chunker: "section"
+  chunker_options:
+    section_pattern: '^\s*(\d+[A-Z]{0,2})\.\s+(.+?)\.\s*[\u2014\-]'
+    max_chunk_tokens: 600
+    keep_with_parent: ["Illustration", "Explanation", "Exception"]
+  page_range: null
+  version_date: "2026-11"
+  source_url: "https://pakistancode.gov.pk/"
+  enabled: true
+  unit_label: "Section"
+  examples:
+    - "What is consideration in a contract?"
+    - "Contract tootne par compensation kaise milta hai?"
+    - "Section 73 Contract Act details"
+
+ppc:
+  name: "Pakistan Penal Code"
+  full_name: "The Pakistan Penal Code, 1860"
+  short: "PPC"
+  year: 1860
+  pdf: "data/raw/ppc_1860.pdf"
+  language: "en"
+  chunker: "section"
+  chunker_options:
+    section_pattern: '^\s*(\d+[A-Z]{0,2})\.\s+(.+?)\.\s*[\u2014\-]'
+    max_chunk_tokens: 600
+    keep_with_parent: ["Illustration", "Explanation", "Exception"]
+  page_range: null
+  version_date: "2026-11"
+  source_url: "https://pakistancode.gov.pk/"
+  enabled: false
+  unit_label: "Section"
+  examples:
+    - "What is the punishment for murder under section 302?"
+    - "What is theft according to PPC?"
