@@ -27,6 +27,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v7
       - name: Verify
         run: bash scripts/verify.sh --lane api
