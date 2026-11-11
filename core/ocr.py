@@ -15,15 +15,25 @@ OCR_PROMPT = (
 )
 
 
-def ocr_gemini_vision(image_bytes: bytes) -> str:
-    """Transcribes page image using Gemini Vision."""
+def ocr_gemini_vision(image_bytes: bytes, mime_type: str = "") -> str:
+    """Transcribes page image using Gemini Vision with automatic MIME detection."""
     settings = get_settings()
     client = get_genai_client()
+
+    if not mime_type:
+        if image_bytes.startswith(b"\xff\xd8"):
+            mime_type = "image/jpeg"
+        elif image_bytes.startswith(b"\x89PNG"):
+            mime_type = "image/png"
+        elif image_bytes.startswith(b"RIFF") and b"WEBP" in image_bytes[:16]:
+            mime_type = "image/webp"
+        else:
+            mime_type = "image/png"
 
     def _call():
         if hasattr(client, "models") and hasattr(client.models, "generate_content"):
             from google.genai import types
-            part = types.Part.from_bytes(data=image_bytes, mime_type="image/png")
+            part = types.Part.from_bytes(data=image_bytes, mime_type=mime_type)
             resp = client.models.generate_content(
                 model=settings.GEMINI_LLM_MODEL,
                 contents=[part, OCR_PROMPT]

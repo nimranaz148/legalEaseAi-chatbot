@@ -36,7 +36,7 @@ class SectionChunker(BaseChunker):
         opts = law_cfg.chunker_options or {}
         pattern_str = opts.get(
             "section_pattern",
-            r"^\s*(\d+[A-Z]{0,2})\.\s+((?:[^\n\.\?\:\u2014]+\n)?[^\n\.\?\:\u2014]+?)(?:\.\s*[\u2014\-]|[\.\?\:\u2014\-]{1,3})\s+"
+            r"^\s*(\d+[A-Z]{0,2})\.\s+((?:[^\n\.\?\:\u2014]+\n)?[^\n\.\?\:\u2014]+?)(?:\.\s*[\u2014\-]|[\.\?\:\u2014\-]{1,3})\s*"
         )
         max_tokens = int(opts.get("max_chunk_tokens", 600))
         max_chars = max_tokens * 4

@@ -58,6 +58,29 @@ class AskResponse(BaseModel):
     debug: Optional[DebugInfo] = None
 
 
+class DraftRequest(BaseModel):
+    topic: str
+    document_type: str = "Legal Notice"
+    jurisdiction: str = "Pakistan"
+    parties: Optional[str] = None
+    key_terms: Optional[str] = None
+
+
+class DraftResponse(BaseModel):
+    title: str
+    document_type: str
+    draft: str
+    disclaimer: str = "Yeh sirf maloomati hai, qanooni mashwara nahi."
+
+
+class SummarizeResponse(BaseModel):
+    filename: str
+    page_count: int
+    char_count: int
+    summary: str
+    disclaimer: str = "Yeh sirf maloomati hai, qanooni mashwara nahi."
+
+
 class ChunkerOptions(BaseModel):
     section_pattern: str = r"^\s*(\d+[A-Z]{0,2})\.\s+(.+?)\.\s*[\u2014\-]"
     max_chunk_tokens: int = 600

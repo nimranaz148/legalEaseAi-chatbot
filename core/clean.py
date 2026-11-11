@@ -27,8 +27,8 @@ CLEANING_PROMPT = (
 
 def rule_based_preclean(text: str) -> str:
     """Deterministic, fast normalization."""
-    # Normalize unicode quotes and dashes
-    t = text.replace("—", "—").replace("–", "—").replace("―", "—")
+    # Normalize unicode replacement characters, quotes and dashes
+    t = text.replace("\ufffd", "—").replace("—", "—").replace("–", "—").replace("―", "—")
     t = t.replace("“", '"').replace("”", '"').replace("’", "'").replace("‘", "'")
 
     # Fix broken hyphenation across linebreaks: e.g. "compen-\nsation" -> "compensation"
@@ -77,7 +77,7 @@ def clean_page(page_result: PageResult, use_llm: bool = True) -> str:
             )
             return rule_cleaned
 
-        return llm_cleaned
+        return rule_based_preclean(llm_cleaned)
     except Exception as e:
         logger.warning("Page %d: LLM cleaning error (%s). Falling back to rule-clean.", page_result.page, e)
         return rule_cleaned

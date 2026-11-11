@@ -1,6 +1,6 @@
-# ⚖️ Legal Assistant RAG — Law-Agnostic Pakistani Statutory Intelligence
+# ⚖️ LegalEase AI — Law-Agnostic Pakistani Statutory Intelligence & Document RAG
 
-An enterprise-grade, law-agnostic Retrieval-Augmented Generation (RAG) assistant designed for precision statutory inquiry and verbatim citation verification across Pakistani legal codes (including the Contract Act 1872 and Pakistan Penal Code 1860).
+An enterprise-grade, law-agnostic Retrieval-Augmented Generation (RAG) assistant designed for precision statutory inquiry and verbatim citation verification across Pakistani legal codes (including the Contract Act 1872, Pakistan Penal Code 1860, and custom user-uploaded legal documents).
 
 Built strictly adhering to **Honey's Spec Harness** standard, enforcing zero law hardcoding in application code, permanent legal disclaimers, verbatim grounding, and deterministic Qdrant point addressing.
 
@@ -86,12 +86,22 @@ py -m uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
 - **Section Detail**: `GET http://127.0.0.1:8000/chunks/{law_id}/{section}`
 - **Interactive Swagger Docs**: `http://127.0.0.1:8000/docs`
 
-### 2. Launch the Streamlit Frontend
+### 2. Launch the Next.js Frontend (LegalEase Workspace)
 
 In a separate terminal:
 
 ```bash
-py -m streamlit run ui/app.py
+cd web
+npm install
+npm run dev
+```
+
+Visit **`http://localhost:3000`** (or `/chat`) to access the complete LegalEase AI workspace.
+
+### 3. Launch the Legacy Streamlit Frontend (Optional)
+
+```bash
+py -m streamlit run ui_legacy/app.py
 ```
 
 Features included:
