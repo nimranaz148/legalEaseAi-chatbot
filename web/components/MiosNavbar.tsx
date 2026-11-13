@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Scale, Sparkles, Menu, ChevronDown, Check, BookOpen, ShieldCheck, FileText, ArrowRight } from "lucide-react";
+import { Scale, Sparkles, Menu, ChevronDown, Check, BookOpen, ShieldCheck, FileText, ArrowRight, User, Shield } from "lucide-react";
 import { Law } from "@/types/api";
 
 interface MiosNavbarProps {
@@ -23,6 +23,7 @@ export function MiosNavbar({
 
   const isChat = pathname === "/chat";
   const isTools = pathname === "/tools";
+  const isAdmin = pathname === "/admin";
   const isHome = pathname === "/";
 
   return (
@@ -95,6 +96,17 @@ export function MiosNavbar({
           >
             Doc Summariser & Draft
           </Link>
+
+          <Link
+            href="/admin"
+            className={`px-3 py-1.5 rounded-full transition-all font-medium ${
+              isAdmin
+                ? "bg-white/15 text-[#D4FF58] border border-[#D4FF58]/30 shadow-[0_0_12px_rgba(212,255,88,0.2)]"
+                : "text-slate-300 hover:text-white"
+            }`}
+          >
+            Admin Panel
+          </Link>
         </nav>
 
         {/* Quick Statutes Filter (Corpus selector) */}
@@ -145,6 +157,15 @@ export function MiosNavbar({
           </div>
         )}
 
+        {/* Admin Portal Button */}
+        <Link
+          href="/admin"
+          className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D4FF58]/10 hover:bg-[#D4FF58]/20 border border-[#D4FF58]/30 text-[#D4FF58] text-xs font-semibold transition-all hover:scale-105"
+        >
+          <Shield className="h-3 w-3" />
+          <span>Admin Portal</span>
+        </Link>
+
         {/* Mobile Menu Button */}
         <div className="relative">
           <button
@@ -176,6 +197,22 @@ export function MiosNavbar({
                   <span>Chat Workspace</span>
                 </div>
                 <ArrowRight className="h-3 w-3" />
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 text-emerald-300 transition-colors flex items-center gap-2 font-semibold"
+              >
+                <Shield className="h-3.5 w-3.5 text-emerald-400" />
+                <span>Admin Portal</span>
+              </Link>
+              <Link
+                href="/login"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 text-[#D4FF58] transition-colors flex items-center gap-2 font-semibold"
+              >
+                <User className="h-3.5 w-3.5 text-[#D4FF58]" />
+                <span>Login / Signup</span>
               </Link>
               <Link
                 href="/#section-metrics"

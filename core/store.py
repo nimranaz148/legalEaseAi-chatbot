@@ -181,6 +181,24 @@ class VectorStore:
             return Chunk(**points[0].payload)
         return None
 
+    def get_chunks_by_law(self, law_id: str, limit: int = 150) -> list[Chunk]:
+        """Retrieves all chunk payloads associated with a specific law_id or user document."""
+        self.ensure_collection()
+        try:
+            res, _ = self.client.scroll(
+                collection_name=self.collection_name,
+                scroll_filter=models.Filter(
+                    must=[models.FieldCondition(key="law_id", match=models.MatchValue(value=law_id))]
+                ),
+                limit=limit,
+                with_payload=True,
+                with_vectors=False
+            )
+            return [Chunk(**p.payload) for p in res if p.payload]
+        except Exception as e:
+            logger.warning("Error fetching chunks for law_id %s: %s", law_id, e)
+            return []
+
     def delete_by_law(self, law_id: str) -> int:
         """Deletes all points associated with a specific law_id."""
         self.ensure_collection()

@@ -216,3 +216,26 @@ export async function deleteUserDocument(docId: string): Promise<{ status: strin
     return handleNetworkError(err);
   }
 }
+
+export interface DocumentChunksResponse {
+  status: string;
+  doc_id: string;
+  chunk_count: number;
+  chunks: Chunk[];
+}
+
+/**
+ * Fetch all chunks for a specific knowledge base document from Qdrant vector store.
+ */
+export async function getDocumentChunks(docId: string): Promise<DocumentChunksResponse> {
+  try {
+    const res = await fetch(`${BASE_PREFIX}/documents/${encodeURIComponent(docId)}/chunks`, {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      cache: "no-store",
+    });
+    return await handleResponse<DocumentChunksResponse>(res);
+  } catch (err) {
+    return handleNetworkError(err);
+  }
+}

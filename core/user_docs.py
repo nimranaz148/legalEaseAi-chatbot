@@ -345,3 +345,9 @@ def delete_user_document(doc_id: str) -> bool:
 
     logger.info("Permanently deleted user document '%s' from Qdrant.", doc_id)
     return True
+
+
+def get_document_chunks(doc_id: str) -> list[Chunk]:
+    """Retrieves all indexed chunks for a user document from Qdrant."""
+    with VectorStore() as store:
+        return store.get_chunks_by_law(doc_id)

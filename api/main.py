@@ -15,7 +15,7 @@ from core.answer import generate_answer
 from core.llm import generate_text
 from core.ocr import ocr_gemini_vision
 from core.extract import should_use_ocr
-from core.user_docs import get_user_documents, index_user_document, delete_user_document
+from core.user_docs import get_user_documents, index_user_document, delete_user_document, get_document_chunks
 
 settings = get_settings()
 
@@ -115,6 +115,24 @@ def delete_document_endpoint(doc_id: str):
         }
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Failed to delete document: {str(e)}")
+
+
+@app.get("/documents/{doc_id}/chunks")
+def get_user_doc_chunks_endpoint(doc_id: str):
+    """Returns all indexed chunks for a user document to inspect in the Admin Panel."""
+    try:
+        chunks = get_document_chunks(doc_id)
+        return {
+            "status": "ok",
+            "doc_id": doc_id,
+            "chunk_count": len(chunks),
+            "chunks": [c.model_dump() for c in chunks]
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to fetch chunks: {str(e)}"
+        )
 
 
 @app.get("/laws")
